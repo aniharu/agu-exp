@@ -64,7 +64,7 @@
         <div id="nicoscreen" style="width:sW;height:sH">
             <div class="side">
                 <h2>
-                うめつい　
+                    うめつい　
                 </h2>
             </div>
 
@@ -78,7 +78,7 @@
                     <%=model.ranking[i] + "      "%>
                     Score：<%=model.ranknum[i]%><br></font>
                     <% }
-                    model.kaiseki(model.text);%>
+                        model.kaiseki(model.text);%>
                 </div>
                 <form action="example.cgi">
                     <p><input type="submit" value="結果をツイートする！"></p>
@@ -246,8 +246,6 @@
                 </script>
             </div>
             <br><br>
-
-            <br><br>
             <div class="col-md-12">
                 <h2>★フォロー状況★</h2>
                 <canvas id="Follow" height="500" width="1000"></canvas><br>
@@ -285,6 +283,46 @@
                 </script>
             </div>
             <br><br>
+            <div class="col-md-12">
+                <h2>★レーダーチャート★</h2>
+                <canvas id="PleaseName" height="500" width="1000"></canvas><br>
+                <script>
+                    var ctx = document.getElementById("PleaseName");
+                    var myRadarChart = new Chart(ctx, {
+                        type: 'radar',
+                        data: {
+                            labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+                            datasets: [
+                                {
+                                    label: "My First dataset",
+                                    backgroundColor: "rgba(179,181,198,0.2)",
+                                    borderColor: "rgba(179,181,198,1)",
+                                    pointBackgroundColor: "rgba(179,181,198,1)",
+                                    pointBorderColor: "#fff",
+                                    pointHoverBackgroundColor: "#fff",
+                                    pointHoverBorderColor: "rgba(179,181,198,1)",
+                                    data: [65, 59, 90, 81, 56, 55, 40]
+                                },
+                                {
+                                    label: "My Second dataset",
+                                    backgroundColor: "rgba(255,99,132,0.2)",
+                                    borderColor: "rgba(255,99,132,1)",
+                                    pointBackgroundColor: "rgba(255,99,132,1)",
+                                    pointBorderColor: "#fff",
+                                    pointHoverBackgroundColor: "#fff",
+                                    pointHoverBorderColor: "rgba(255,99,132,1)",
+                                    data: [28, 48, 40, 19, 96, 27, 100]
+                                }
+                            ]
+                        },
+                        options: {
+                            animation: {
+                                duration: 20000
+                            }
+                        }
+                    });
+                </script>
+            </div>
             <div class="col-md-12">
                 <h2>★ワードクラウド★</h2>
                 <script>
@@ -339,40 +377,33 @@
                 </script>
             </div>
         </div>
+        <br><br>
         <script type="text/javascript">
-	
-	var obj = {
-		
-		//基本情報が設定できます
-		"base":{
-			color:"white", //文字の色を指定します
-			speed:"normal", //文字が流れるスピードを指定します。slow/fast/normal 
-			interval:"normal",//文字が流れる間隔を指定します。slow/fast/normal
-			font_size:"30px", //フォントのサイズを指定します。
-			loop:true //文字が最後まで流れた後に、繰り返すかどうか　true/false
-			
-		},
-		
-		//ここに、重ねるコメントを登録します。個数制限はありません。
-		"comments":[
-			
-			"ワロスｗｗｗｗｗ",
-			"ｗｗｗｗｗ",
-			"かわいい",	
-			"(*´д`*)はぁはぁ",
-			"なんだこれｗｗｗ",
-			"ねこかわゆす"
-			
-			
-			
-		]
-		
-	};
+            var obj = {
+                //基本情報が設定できます
+                "base": {
+                    color: "white", //文字の色を指定します
+                    speed: "normal", //文字が流れるスピードを指定します。slow/fast/normal 
+                    interval: "normal", //文字が流れる間隔を指定します。slow/fast/normal
+                    font_size: "30px", //フォントのサイズを指定します。
+                    loop: true //文字が最後まで流れた後に、繰り返すかどうか　true/false
+                },
+                //ここに、重ねるコメントを登録します。個数制限はありません。
+                "comments": [
+                    "ワロスｗｗｗｗｗ",
+                    "ｗｗｗｗｗ",
+                    "かわいい",
+                    "(*´д`*)はぁはぁ",
+                    "なんだこれｗｗｗ",
+                    "ねこかわゆす"
 
-	nicoscreen.set(obj);
-	nicoscreen.start();
 
-</script>
+
+                ]
+            };
+            nicoscreen.set(obj);
+            nicoscreen.start();
+        </script>
         <% }%>
     </body>
 </html>
