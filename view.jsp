@@ -63,11 +63,20 @@
                 model.twi4j();
                 model.getTimeline();
                 model.printUser();%>
+
         <div class="side">
             <h2>
                 うめつい　
             </h2>
         </div>
+        
+         <script>
+            $(window).resize(function () {
+                var w = $(window).width();
+                var h = $(window).height();
+            });
+        </script>
+        
         <div id="nicoscreen" style="width:sW;height:sH;border: white;">
 
             <div class="col-md-12">
@@ -209,8 +218,8 @@
                 <p><font size="5"><%=model.getBotti()%>%</font></p><br>
                 <canvas id="Botti" height="500" width="1000"></canvas><br>
                 <script>
-                    var ctx2 = document.getElementById("Botti");
-                    var botti = new Chart(ctx2, {
+                    var ctx = document.getElementById("Botti");
+                    var botti = new Chart(ctx, {
                         type: 'pie',
                         data: {
                             labels: [
@@ -232,21 +241,19 @@
                         },
                         options: {
                             animation: {
-                                duration: 4000
+                                duration: 12000
                             }
                         }
                     });
                 </script>
             </div>
             <br><br>
-
-            <br><br>
             <div class="col-md-12">
                 <h2>★フォロー状況★</h2>
                 <canvas id="Follow" height="500" width="1000"></canvas><br>
                 <script>
-                    var ctx3 = document.getElementById("Follow");
-                    var follow = new Chart(ctx3, {
+                    var ctx = document.getElementById("Follow");
+                    var follow = new Chart(ctx, {
                         type: 'pie',
                         data: {
                             labels: [
@@ -271,7 +278,48 @@
                         },
                         options: {
                             animation: {
-                                duration: 12000
+                                duration: 16000
+                            }
+                        }
+                    });
+                </script>
+            </div>
+            <br><br>
+            <div class="col-md-12">
+                <h2>★レーダーチャート★</h2>
+                <canvas id="PleaseName" height="500" width="1000"></canvas><br>
+                <script>
+                    var ctx = document.getElementById("PleaseName");
+                    var myRadarChart = new Chart(ctx, {
+                        type: 'radar',
+                        data: {
+                            labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+                            datasets: [
+                                {
+                                    label: "My First dataset",
+                                    backgroundColor: "rgba(179,181,198,0.2)",
+                                    borderColor: "rgba(179,181,198,1)",
+                                    pointBackgroundColor: "rgba(179,181,198,1)",
+                                    pointBorderColor: "#fff",
+                                    pointHoverBackgroundColor: "#fff",
+                                    pointHoverBorderColor: "rgba(179,181,198,1)",
+                                    data: [65, 59, 90, 81, 56, 55, 40]
+                                },
+                                {
+                                    label: "My Second dataset",
+                                    backgroundColor: "rgba(255,99,132,0.2)",
+                                    borderColor: "rgba(255,99,132,1)",
+                                    pointBackgroundColor: "rgba(255,99,132,1)",
+                                    pointBorderColor: "#fff",
+                                    pointHoverBackgroundColor: "#fff",
+                                    pointHoverBorderColor: "rgba(255,99,132,1)",
+                                    data: [28, 48, 40, 19, 96, 27, 100]
+                                }
+                            ]
+                        },
+                        options: {
+                            animation: {
+                                duration: 20000
                             }
                         }
                     });
@@ -285,10 +333,8 @@
                     </svg>
                     <script>
                         var fill = d3.scale.category20();
-
                         var w = $(window).width(), //横
                                 h = $(window).height(); //縦
-
                         var layout = d3.layout.cloud()
                                 .size([500, 500])
                                 .words([
@@ -305,9 +351,7 @@
                                     return d.size;
                                 })
                                 .on("end", draw);
-
                         layout.start();
-
                         function draw(words) {
                             d3.select("body").select("#test")
                                     .attr("width", layout.size()[0])
@@ -338,7 +382,6 @@
             </div>
         </div>
         <script type="text/javascript">
-
             var obj = {
                 //基本情報が設定できます
                 "base": {
@@ -347,7 +390,6 @@
                     interval: "normal", //文字が流れる間隔を指定します。slow/fast/normal
                     font_size: "30px", //フォントのサイズを指定します。
                     loop: true //文字が最後まで流れた後に、繰り返すかどうか　true/false
-
                 },
                 //ここに、重ねるコメントを登録します。個数制限はありません。
                 "comments": [
@@ -357,18 +399,12 @@
                     "(*´д`*)はぁはぁ",
                     "なんだこれｗｗｗ",
                     "ねこかわゆす"
-
-
-
                 ]
-
             };
-
             nicoscreen.set(obj);
             nicoscreen.start();
             var box = document.getElementById('nicoscreen');
             box.style.border = 'white';
-
         </script>
         <% }%>
     </body>
