@@ -233,13 +233,17 @@
                                         ]
                                 },
                                 options: {
+                                scale: {
                                 ticks: {
-                                maxRotation: 100
+                                scaleOverride: true,
+                                        max: 100
+                                }
                                 },
                                         animation: {
-                                        duration: 20000
+                                        duration:10000
                                         }
                                 }
+
                         });
                     </script>
                 </div>
@@ -354,7 +358,7 @@
                                     },
                                     options: {
                                     animation: {
-                                    duration: 4000
+                                    duration: 12000
                                     }
                                     }
                             });
