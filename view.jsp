@@ -102,6 +102,9 @@
                 text-align:center;
                 background: #ffffff;
             }
+            .gyo{
+                line-height: 200%;
+            }
         </style>
     </head>
     <body>
@@ -177,35 +180,17 @@
                     ようこそ！ <%=model.getMyname()%>@<%=model.getScname()%> !
                 </div>
                 <div class="rader">
-                    <h2>あなたの基本ステータス</h2>
-                    フォロー数：  <%=model.getFnum()%> 人<br>
-                    フォロワー数：　<%=model.getFednum()%> 人<br>
-                    ついったーを始めてからの総ツイート数：  <%=model.getAllnum()%> 回<br>
-                    ついったー歴： <%=model.getHist()%> 日<br>
-                    <br><br>
                     <li>
-                        <h2>★あなたのついったースキル測定★</h2>
-                        <div class="col-sm-3 col-xs-6">
-                            <p> <font size=4>最も活発な時間: </font> XX 時
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <p> <font size=4>ひとりごと率: </font> XX %
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <p> <font size=4>Twitter 歴: </font> XX 日
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <p> <font size=4>平均文字数: </font><%=model.getTwimean()%>字
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <p> <font size=4>1日平均文字数: </font> XX 字
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <p> <font size=4>平均ツイート間隔: </font> XX 日
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <p> <font size=4>1日のツイート回数: </font><%=model.getTwipday()%>回
-                        </div>
+                        <h2>★あなたの基本ステータス★</h2>
+                        <span class="gyo">
+                            フォロー数：  <%=model.getFnum()%> 人<br>
+                            フォロワー数：　<%=model.getFednum()%> 人<br>
+                            ついったーを始めてからの総ツイート数：  <%=model.getAllnum()%> 回<br>
+                            ついったー歴： <%=model.getHist()%> 日<br>
+                            平均文字数: <%=model.getTwimean()%> 字<br>
+                            1日のツイート回数: <%=model.getTwipday()%> 回<br>
+                        </span>
+                        <br><br>
                     </li>
                     <li><canvas id="twiStatus" height="400" width="500"></canvas><br></li>
                     <script>
