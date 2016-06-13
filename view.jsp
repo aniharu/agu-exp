@@ -15,7 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Twitter OAuth認証開始</title>
+        <title>うめつい！</title>
         <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <script src="d3.layout.cloud.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
@@ -24,8 +24,14 @@
         <script type="text/javascript" src="nicoscreen.js"></script>
 
         <style type="text/css">
+        <!--
             body{
                 background:#eeeeee;
+            }
+            .top{
+                background:#F0F5FB;
+                font-size:x-large;
+                font-family:"メイリオ";
             }
             .col-md-12{
                 background: #ffffff;
@@ -53,11 +59,46 @@
                 text-align:center;
                 background: #ffffff;
             }
+        -->
         </style>
     </head>
     <body>
         <% if (token == null || stoken == null) {%>
-        <p><a href="<%=model.getAuth()%>">Twitter OAuth認証開始</a></p>
+        <div class="top">
+          <p><center><font size=7 color="#FF69B4">
+          <div style="border-style: solid ; border-width: 1px; border-color: red; width: 600px">うめついへようこそ！</div>
+          </font></center></p>
+          <p><a href="<%=model.getAuth()%>"><center><font size=5 face=>>>Twitter認証をする！<<</font></center></a></p>
+          <ul>
+          <p><li>うめついってなに？
+          <ol>
+          あなたのTwitterの行動を分析し、その結果を表示します。<br>
+          </ol>
+          </li></p>
+          <p><li>どうやって使うの？
+          <ol>
+          １：Twitter認証のボタンをクリックします。<br>
+          ２：あなたのTwitterアカウントでログインします。<br>
+          ３：自動的にうめついに戻り、あなたのTwitterの解析結果が表示されます。<br>
+          </ol>
+          </li></p>
+          <p><li>どんな情報が表示されるの？
+          <ol>
+          ・ワードクラウド：どの単語をどれだけつぶやいたか表示します。<br>
+          ・仲のいいユーザーランキング：リプライした回数の多いアカウントをランキングにしました。<br>
+          ・ツイートステータス：あなたのツイートにまつわる様々な情報を表示します。<br>
+          ・ぼっち度：リプライツイート数を総ツイート数で割った値です。<br>
+          ・フォロー状況：相互フォローなどの情報を表示します。<br>
+          </ol>
+          </li></p>
+          <p><li>梅本君に自分のTwitter見られるの嫌なんですけど！
+          <ol>
+          今回ログインに使っているoauth認証キーは、アプリ終了時にデータベースに残ることはなく、そのまま破棄されます。<br>
+          また、管理者であってもキーの取得は一切できないので安心です。<br>
+          通常のサイトでTwitter認証をする場合、一回認証されるとキーはデータベースに保存されてしまいます。注意してください！<br>
+          </ol>
+          </li></p>
+        </div>
         <% } else if (tweeet != null) {%>
         <% model.twi4j();
             model.tweet4(tweeet);%>
@@ -357,7 +398,6 @@
             </div>
         </div>
         <script type="text/javascript">
-
                     var obj = {
                     //基本情報が設定できます
                     "base": {
@@ -366,7 +406,6 @@
                             interval: "normal", //文字が流れる間隔を指定します。slow/fast/normal
                             font_size: "30px", //フォントのサイズを指定します。
                             loop: true //文字が最後まで流れた後に、繰り返すかどうか　true/false
-
                     },
                             //ここに、重ねるコメントを登録します。個数制限はありません。
                             "comments": [
@@ -379,17 +418,12 @@
                             "<%=model.getWords(i)%>",
             <%}%>
                             "うめつい"
-
-
-
                             ]
-
                     };
             nicoscreen.set(obj);
             nicoscreen.start();
             var box = document.getElementById('nicoscreen');
             box.style.border = 'white';
-
         </script>
         <% }%>
     </body>
