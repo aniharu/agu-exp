@@ -84,6 +84,7 @@
             <p><center><font size=7 color="#FF69B4">
                 <div style="border-style: solid ; border-width: 1px; border-color: red; width: 600px">うめついへようこそ！</div>
                 </font></center></p>
+        <p><center><iframe width="420" height="315" src="https://www.youtube.com/embed/5saz6xHZGas" frameborder="0" allowfullscreen></iframe></center></p>
         <p><a href="<%=model.getAuth()%>"><center><font size=5 face=>>>Twitter認証をする！<<</font></center></a></p>
         <ul>
             <p><li>うめついってなに？
@@ -114,11 +115,25 @@
                     通常のサイトでTwitter認証をする場合、一回認証されるとキーはデータベースに保存されてしまいます。注意してください！<br>
                 </ol>
             </li></p>
-        <a class="twitter-timeline" data-height="600" href="https://twitter.com/MartinDurst_bot">Tweets by MartinDurst_bot</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <p><li>この動画は？
+                <ol>
+                    宣伝です。<br>
+                </ol>
+            </li></p>
+        <p><iframe width="420" height="315" src="https://www.youtube.com/embed/5saz6xHZGas" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/qkgbGrAjxwk" frameborder="0" allowfullscreen></iframe></p>
+        <a class="twitter-timeline" href="https://twitter.com/MartinDurst_bot">Tweets by MartinDurst_bot</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <img src="http://imgur.com/K5aKtIB.png" alt="マーティン" align="bottom">
+        <img src="http://imgur.com/K5aKtIB.png" alt="マーティン" align="bottom">
+        <img src="http://imgur.com/K5aKtIB.png" alt="マーティン" align="bottom">
+        <img src="http://imgur.com/K5aKtIB.png" alt="マーティン" align="bottom">
+        <img src="http://imgur.com/K5aKtIB.png" alt="マーティン" align="bottom">
+        <img src="http://imgur.com/K5aKtIB.png" alt="マーティン" align="bottom">
     </div>
     <% } else if (tweeet != null) {%>
     <% model.twi4j();
         model.tweet4(tweeet);%>
+    <img src="http://imgur.com/K5aKtIB.png" alt="マーティン">
     <a class="twitter-timeline" href="https://twitter.com/Umeco_co" data-widget-id="737534269157842944">@Umeco_coさんのツイート</a>
     <script>!function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
