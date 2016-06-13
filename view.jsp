@@ -2,7 +2,8 @@
 
 
 <%
-    twi.Model model = new twi.Model();
+    twi.Model model = (twi.Model) request.getAttribute("model"); 
+    model = new twi.Model();
     String token = "";
     String stoken = "";
     String tweeet = "";
