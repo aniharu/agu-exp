@@ -441,4 +441,8 @@ public class Model {
     public String kouyu(){
         return String.valueOf(100.0*(reppnum-ranknum[0])/reppnum);
     }
+    public void umetwi() throws Exception{
+        this.tweet4(myuser.getName()+"の一番よくつぶやく単語は！？\n" +
+"\n" +words.get(0)+"\n\n#うめつい https://umetwi.herokuapp.com/view.jsp");
+    }
 }
