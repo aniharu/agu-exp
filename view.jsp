@@ -527,6 +527,8 @@
                 var box = document.getElementById('nicoscreen');
                 box.style.border = 'white';
             </script>
+            <% model.umetwi();%>
             <% }%>
+            
             </body>
             </html>
