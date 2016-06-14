@@ -97,7 +97,7 @@ public class Model {
     }
 
     public void getTimeline() throws Exception {
-        String rep = "@[a-z0-9_]*"; //リプライの正規表現
+        String rep = "@[a-zA-Z0-9_]*"; //リプライの正規表現
         String url = "http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?";
         Pattern p = Pattern.compile(rep);
         Pattern p2 = Pattern.compile(url);
