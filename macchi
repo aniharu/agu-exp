@@ -7,8 +7,9 @@ public class macching {
 	public static void main(String args[]){
 		String macchi="^[^0-9a-zA-Z一-龠\\u3040-\\u309F\\u30A0-\\u30FF\\uFF65-\\uFF9F\\u3040-\\u30FF]*$";
 		String macchi2="[^0-9a-zA-Z一-龠\\u3040-\\u309F\\u30A0-\\u30FF\\uFF65-\\uFF9F\\u3040-\\u30FF]";
-		String target="(´ё";
-		Pattern p=Pattern.compile(macchi);
+		String macchi3="^.+$";
+		String target="aaaaaaa";
+		Pattern p=Pattern.compile(macchi3);
 		Matcher m= p.matcher(target);
 		
 		System.out.println(target.replaceAll(macchi2, ""));
