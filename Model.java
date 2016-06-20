@@ -98,7 +98,7 @@ public class Model {
 
     public void getTimeline() throws Exception {
         String rep = "@[a-zA-Z0-9_]*"; //リプライの正規表現
-        String url = "http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?";
+        String url = "http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?"; //url削除の正規表現
         Pattern p = Pattern.compile(rep);
         Pattern p2 = Pattern.compile(url);
         Matcher m;
@@ -222,8 +222,11 @@ public class Model {
     public void kaiseki(String txt) {
         ArrayList<Integer> nums = new ArrayList<Integer>();
         ArrayList<String> key = new ArrayList<String>();
-        String kigou = "^[(´°・`｀；.。、,)（）]*$";
-        Pattern p = Pattern.compile(kigou);
+        String macchi="^[^0-9a-zA-Z一-龠\\u3040-\\u309F\\u30A0-\\u30FF\\uFF65-\\uFF9F\\u3040-\\u30FF]*$";//顔文字一致の正規表現
+        String macchi2="[^0-9a-zA-Z一-龠\\u3040-\\u309F\\u30A0-\\u30FF\\uFF65-\\uFF9F\\u3040-\\u30FF]";//顔文字削除の正規表現
+	String macchi3="(.)\\1{2,}";//同一文字削除の正規表現
+        Pattern p = Pattern.compile(macchi);
+        Pattern p2 = Pattern.compile(macchi3);
         Matcher m;
         int page, flag = 0;
         String tmp = "", toke = "";
@@ -241,7 +244,14 @@ public class Model {
                 if (m.find()) {
                     continue;
                 }
-                toke = toke.replace("\"", "");
+                toke=toke.replaceAll(macchi2, "");
+                m = p2.matcher(toke);
+                if (m.find()) {
+                    continue;
+                }
+                if (toke.length() < 3) {
+                    continue;
+                }
             } else if (!token.getAllFeaturesArray()[0].equals("名詞") && tmp.equals("")) {
                 continue;
             } else if (token.getAllFeaturesArray()[0].equals("名詞") && tmp.equals("")) {
